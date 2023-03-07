@@ -10,9 +10,6 @@ player.on('timeupdate', throttle(e => {
     localStorage.setItem(STORAGE_KEY, e.seconds);
 }, 500) )
 
-player.setCurrentTime(localStorage.getItem(STORAGE_KEY)).then(function(seconds) {
-}).catch(function(error) {
-    if(localStorage.getItem(STORAGE_KEY) < 0) {
-        console.log(error);
-    }
+player.setCurrentTime(localStorage.getItem(STORAGE_KEY)).catch(function(error) {
+    console.log(error);
 });
